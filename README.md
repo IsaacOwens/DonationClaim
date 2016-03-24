@@ -1,9 +1,10 @@
 #Donation Claim
 
-Oxide plugin for Rust
+Oxide plugin for Rust. Install guide: http://oxidemod.org/plugins/donation-claim.1770/
 
 MySQL objects:
 
+```
 CREATE TABLE IF NOT EXISTS rustserver.ibn_table (
     `id` INT(11) NOT NULL AUTO_INCREMENT,
     `itransaction_id` VARCHAR(60) NOT NULL,
@@ -18,9 +19,9 @@ CREATE TABLE IF NOT EXISTS rustserver.ibn_table (
     `claim_date` DATETIME DEFAULT NULL,
     PRIMARY KEY (`id`)
 )  ENGINE=MYISAM AUTO_INCREMENT=9 DEFAULT CHARSET=LATIN1;
+```
 
-
-
+```
 CREATE DEFINER=`root`@`localhost` PROCEDURE rustserver.claim_donation(IN email_address VARCHAR(255))
 BEGIN
 
@@ -46,3 +47,4 @@ from    rustserver.ibn_table as IBN
 where    IBN.id = @ID;
 
 END
+```
